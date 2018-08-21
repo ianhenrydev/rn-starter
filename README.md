@@ -40,25 +40,81 @@ module.exports = {
 
 Rename `App.js` to `App.tsx`
 
-## Add Prettier
+## Expo
+
+`expo init sample-proj-expo`
+
+`yarn add --dev typescript tslint react-native-typescript-transformer react-native-scripts-ts`
+
+`yarn add --dev @types/react @types/react-native`
+
+replace scripts with:
 
 ```
-yarn add --dev prettier
-touch .prettierrc
+"scripts": {
+    "start": "react-native-scripts-ts start",
+    "eject": "react-native-scripts-ts eject",
+    "android": "react-native-scripts-ts android",
+    "ios": "react-native-scripts-ts ios"
+  },
 ```
 
-Open VS Code workspace settings and add:
+replace main with: `"main": "./node_modules/react-native-scripts-ts/build/bin/crna-entry.js"`
 
-```
-"editor.formatOnSave": true,
-"javascript.format.enable": false
-```
-
-Update prettier rules:
+add tsconfig:
 
 ```
 {
-    "semi": false,
-    "singleQuote": true
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "outDir": "build/dist",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "jsx": "react-native",
+    "lib": ["dom", "es2015", "es2016"],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "strict": true,
+    "noImplicitReturns": true
+  }
 }
+```
+
+add packager info to app.json :
+
+````
+    "packagerOpts": {
+      "sourceExts": ["ts", "tsx"],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    },
+    ```
+
+## Add Prettier
+````
+
+yarn add --dev prettier
+touch .prettierrc
+
+```
+Open VS Code workspace settings and add:
+```
+
+"editor.formatOnSave": true,
+"javascript.format.enable": false
+
+```
+Update prettier rules:
+```
+
+{
+"printWidth": 160,
+"semi": false,
+"singleQuote": true
+}
+
+```
+
 ```
