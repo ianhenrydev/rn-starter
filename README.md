@@ -2,7 +2,11 @@
 
 This is my personal React Native starting template. So far my only additions are TypeScript and Prettier. Soon this will be a script.
 
-## Init React Native
+## React Native CLI
+
+### Init Project
+
+`yarn global add react-native-cli`
 
 https://facebook.github.io/react-native/docs/getting-started.html
 
@@ -10,7 +14,7 @@ https://facebook.github.io/react-native/docs/getting-started.html
 
 \*Note: React Native 0.56 is broken on windows machines. You must downgrade to 0.55.4.
 
-## Add TypeScript
+### Add TypeScript
 
 https://github.com/Microsoft/TypeScript-React-Native-Starter
 
@@ -40,9 +44,15 @@ module.exports = {
 
 Rename `App.js` to `App.tsx`
 
-## Expo
+## Expo CLI
 
-`expo init sample-proj-expo`
+### Init Project
+
+`yarn global add expo-cli`
+
+`expo init sample-expo`
+
+### Add Typescript
 
 `yarn add --dev typescript tslint react-native-typescript-transformer react-native-scripts-ts`
 
@@ -85,36 +95,33 @@ add tsconfig:
 
 add packager info to app.json :
 
-````
-    "packagerOpts": {
-      "sourceExts": ["ts", "tsx"],
-      "transformer": "node_modules/react-native-typescript-transformer/index.js"
-    },
-    ```
+```
+"packagerOpts": {
+  "sourceExts": ["ts", "tsx"],
+  "transformer": "node_modules/react-native-typescript-transformer/index.js"
+},
+```
 
 ## Add Prettier
-````
 
+```
 yarn add --dev prettier
 touch .prettierrc
-
 ```
+
 Open VS Code workspace settings and add:
-```
 
+```
 "editor.formatOnSave": true,
 "javascript.format.enable": false
-
 ```
+
 Update prettier rules:
-```
 
+```
 {
-"printWidth": 160,
-"semi": false,
-"singleQuote": true
+  "printWidth": 160,
+  "semi": false,
+  "singleQuote": true
 }
-
-```
-
 ```
